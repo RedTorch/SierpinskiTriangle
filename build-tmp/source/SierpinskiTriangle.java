@@ -1,3 +1,19 @@
+import processing.core.*; 
+import processing.data.*; 
+import processing.event.*; 
+import processing.opengl.*; 
+
+import java.util.HashMap; 
+import java.util.ArrayList; 
+import java.io.File; 
+import java.io.BufferedReader; 
+import java.io.PrintWriter; 
+import java.io.InputStream; 
+import java.io.OutputStream; 
+import java.io.IOException; 
+
+public class SierpinskiTriangle extends PApplet {
+
 public void setup()
 {
 	size(600,600);
@@ -36,4 +52,13 @@ public void sierpinski(int x, int y, int len, int inheritCycle)
 		sierpinski(x,y-(int)(len/4),(int)(len/2),inheritCycle-1);
 	}
 	//triangle(x-(int)(len/2), y+(int)(len-2), x, y-(int)(len/2), x+(int)(len/2), y+(int)(len/2));  //Is the triangle base
+}
+  static public void main(String[] passedArgs) {
+    String[] appletArgs = new String[] { "SierpinskiTriangle" };
+    if (passedArgs != null) {
+      PApplet.main(concat(appletArgs, passedArgs));
+    } else {
+      PApplet.main(appletArgs);
+    }
+  }
 }
